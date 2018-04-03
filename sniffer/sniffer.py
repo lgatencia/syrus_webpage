@@ -3,7 +3,6 @@
 #
 # Grupo Independiente
 # Luis Atencia
-#
 
 import socket
 import struct
@@ -25,7 +24,7 @@ import datetime
 
 #................................................................
 # this depends of our amazon instance
-connection = 
+connection =
 pymysql.connect(host='desing-db.cmfuxwhkaj59.us-west-2.rds.amazonaws.com',
                              user='root',
                              password='jela118759',
@@ -36,7 +35,7 @@ pymysql.connect(host='desing-db.cmfuxwhkaj59.us-west-2.rds.amazonaws.com',
 #.................................................................
 
 def main():
-    conn = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, 
+    conn = socket.socket(socket.AF_PACKET, socket.SOCK_RAW,
 socket.ntohs(3))
     while True:
         #read all posible value from ports
@@ -65,7 +64,7 @@ socket.ntohs(3))
                     if data:
 
                         try:
-                            itIs, EventDef, datetime, lat, lon, vel, 
+                            itIs, EventDef, datetime, lat, lon, vel,
 id_syrus = get_message(info)
                         except ValueError:
                             pass
@@ -87,7 +86,7 @@ def ipv4_packet(data):
     version_header_lenght = data[0]
     version = version_header_lenght >> 4
     header_length = (version_header_lenght & 15) * 4
-    ttl, proto, src, target = struct.unpack('! 8x B B 2x 4s 4s', 
+    ttl, proto, src, target = struct.unpack('! 8x B B 2x 4s 4s',
 data[:20])
     #return ipv4_fmt(src), ipv4_fmt(target), data[header_length:]
     return proto, target, data[header_length:]
@@ -114,7 +113,7 @@ def get_message(m):
 
         # Time
         ts_epoch = get_seconds(int(m[6:10]), int(m[10]), int(m[11:16]))
-        my_datetime = 
+        my_datetime =
 datetime.datetime.fromtimestamp(ts_epoch).strftime('%Y-%m-%d %H:%M:%S')
 
         #print(my_datetime)
@@ -138,7 +137,6 @@ datetime.datetime.fromtimestamp(ts_epoch).strftime('%Y-%m-%d %H:%M:%S')
     return itIs, EventDef, my_datetime, lat, lon, vel, id_syrus
 
 #..................................................................
-
 def get_seconds(wks, days, scnd):
      seco = wks * 7 * 24 * 60 * 60 + (days + 3657) * 24 * 60 * 60 + scnd
      # + 5 * 60 * 60
@@ -150,15 +148,16 @@ def db(latitude, longitude, id_syrus, datetime, velocity):
     try:
         with connection.cursor() as cursor:
             # Create a new record
-            sql = "INSERT INTO `position_data_position_data` 
-(`latitude`, `longitude`, `id_syrus`, `datetime`, `velocity`) VALUES ( 
+            sql = "INSERT INTO `position_data_position_data`
+(`latitude`, `longitude`, `id_syrus`, `datetime`, `velocity`) VALUES (
 %s, %s, %s, %s, %s)"
-            cursor.execute(sql, (str(latitude), str(longitude), 
+            cursor.execute(sql, (str(latitude), str(longitude),
 id_syrus, datetime, str(velocity)))
-        # connection is not autocommit by default. So you must commit to 
+        # connection is not autocommit by default. So you must commit to
 save
         # your changes.
         connection.commit()
+
     finally:
         #connection.close()
         #print("ok Db")
@@ -166,5 +165,3 @@ save
 #.....................................................................
 # this is the main function
 main()
-
-
