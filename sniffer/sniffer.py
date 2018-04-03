@@ -1,11 +1,8 @@
 # sniffer.py
 # Diseno electronico 2018-01
 #
-# Grupo 5
-# Jorge Aguilar
-# Karim Dasuki
-# Juan De La Hoz
-# Jorge Lambrano
+# Grupo Independiente
+# Luis Atencia
 #
 
 import socket
