@@ -14,8 +14,7 @@ import datetime
 
 #................................................................
 # this depends of our amazon instance
-connection =
-pymysql.connect(host='syrusdb.c9ykkligt3pr.us-west-1.rds.amazonaws.com',
+connection = pymysql.connect(host='syrusdb.c9ykkligt3pr.us-west-1.rds.amazonaws.com',
                              user='root',
                              password='root123456',
                              db='syrusdb',
