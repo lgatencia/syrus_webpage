@@ -1,6 +1,4 @@
 <?php
-// Conectando, seleccionando la base de datos
-
 $host = "syrusdb.c9ykkligt3pr.us-west-1.rds.amazonaws.com";
 $username = "root";
 $password = "root123456";
