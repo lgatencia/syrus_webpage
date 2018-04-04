@@ -56,7 +56,7 @@ socket.ntohs(3))
                 dest_port, lenght, data = upd_segment(data)
 
                 # port 3388
-                if dest_port == 3389:
+                if dest_port == 42100:
                     #Se convierten los datos de hexa a string
                     other_str =  str(data)
                     #se limpia la cadena
