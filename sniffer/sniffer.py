@@ -28,7 +28,7 @@ import datetime
 connection =
 pymysql.connect(host='syrusdb.c9ykkligt3pr.us-west-1.rds.amazonaws.com',
                              user='root',
-                             password='root1234',
+                             password='root123456',
                              db='syrusdb',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
