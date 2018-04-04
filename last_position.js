@@ -2,7 +2,7 @@ var marker = null; //CREA OBJETO MARCADOR
 var route = [];
 var map;
 
-window.addEventListener("load", refresh, true); 
+window.addEventListener("load", refresh, true);
 
 function initMap(){
     map = new google.maps.Map(document.getElementById('map'), { //ASOCIAR VARIABLE CON ID
@@ -10,7 +10,7 @@ function initMap(){
         center: {lat: 11.019010, lng: -74.850505}
     });
     refresh();  // FUNCION PARA REFRESCAR PAGINA
-    setInterval(refresh,1000); //LLAMA LA FUNCION REFRESH CADA 1 SEGUNDOS    
+    setInterval(refresh,1000); //LLAMA LA FUNCION REFRESH CADA 1 SEGUNDOS
 }
 //refresh();  // FUNCION PARA REFRESCAR PAGINA
 //setInterval(refresh,1000); //LLAMA LA FUNCION REFRESH CADA 1 SEGUNDOS
@@ -33,7 +33,7 @@ function refresh(){
        return_first="";
     }
     var data = return_first.split("\n"); // Los datos que me importan (Lat, Long, Tiem) se encuentran en el salto 9, por eso guardo en una variable esa linea y a su vez divido ese string cada que encuentre un espacio
-    
+
     var latitudeElement = document.getElementById("lat"); // Voy a mostrar un texto en donde esté el id "Latitud"
     //latitudeElement.textContent = "Latitud: " + data[0]; // Muestro Lat + la coordenada guardada en 0 que se dividio con el split
     latitudeElement.innerHTML = "<p>Latitude: " + data[0] + "</p>";
@@ -41,7 +41,7 @@ function refresh(){
     //longitudeElement.textContent = "Longitud: " + data[1];
     longitudeElement.innerHTML = "<p>Longitude: " + data[1] + "</p>";
     var timeElement = document.getElementById("time");
-    timeElement.innerHTML = "<p>Time: " + data[2] + "</p>"
+    timeElement.innerHTML = "<p>Time: " + data[3] + "</p>"
     //timeElement.textContent =  "Tiempo: " + data[3];
 
     latitude = parseFloat(data[0]);
