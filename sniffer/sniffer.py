@@ -26,10 +26,10 @@ import datetime
 #................................................................
 # this depends of our amazon instance
 connection =
-pymysql.connect(host='desing-db.cmfuxwhkaj59.us-west-2.rds.amazonaws.com',
+pymysql.connect(host='syrusdb.c9ykkligt3pr.us-west-1.rds.amazonaws.com',
                              user='root',
-                             password='jela118759',
-                             db='syrus_data',
+                             password='root1234',
+                             db='syrusdb',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
 
@@ -162,7 +162,7 @@ save
     finally:
         #connection.close()
         #print("ok Db")
-        pass
+        print(sql)
 #.....................................................................
 # this is the main function
 main()
