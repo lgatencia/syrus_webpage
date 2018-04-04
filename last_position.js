@@ -41,7 +41,7 @@ function refresh(){
     //longitudeElement.textContent = "Longitud: " + data[1];
     longitudeElement.innerHTML = "<p>Longitude: " + data[1] + "</p>";
     var timeElement = document.getElementById("time");
-    timeElement.innerHTML = "<p>Time: " + data[3] + "</p>"
+    timeElement.innerHTML = "<p>Time: " + data[2] + "</p>"
     //timeElement.textContent =  "Tiempo: " + data[3];
 
     latitude = parseFloat(data[0]);
