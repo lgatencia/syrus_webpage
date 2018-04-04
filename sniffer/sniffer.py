@@ -134,7 +134,7 @@ def db(latitude, longitude, id_syrus, datetime, velocity):
     try:
         with connection.cursor() as cursor:
             # Create a new record
-            sql = "INSERT INTO `position_data_position_data` (`latitude`, `longitude`, `id_syrus`, `datetime`, `velocity`) VALUES (%s, %s, %s, %s, %s)"
+            sql = "INSERT INTO `data_pos` (`latitude`, `longitude`, `id_syrus`, `datetime`, `velocity`) VALUES (%s, %s, %s, %s, %s)"
             cursor.execute(sql, (str(latitude), str(longitude), id_syrus, datetime, str(velocity)))
         # connection is not autocommit by default. So you must commit to save
         # your changes.
