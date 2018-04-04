@@ -1,12 +1,12 @@
 <?php
 
-$host = "designdatabase2.cg6tv9ndrugo.us-west-2.rds.amazonaws.com";
-$username = "admin";
-$password = "admin123456";
-$database = "designdatabase";
+$host = "syrusdb.c9ykkligt3pr.us-west-1.rds.amazonaws.com";
+$username = "root";
+$password = "root123456";
+$database = "syrusdb";
 
 // conecta al servidor con user, contraseña
-$conn = new mysqli($host,$username,$password,$database); 
+$conn = new mysqli($host,$username,$password,$database);
 
 if (isset($_POST['date_time_start']))
 {
@@ -36,15 +36,15 @@ else
 
 // Realizar una consulta MySQL
 // ultimo valor de la tabla llamada datos""
-$query = "SELECT * FROM designdatabase.position_data WHERE datetime BETWEEN '".$datetime_start."' AND '".$datetime_end."' ORDER BY id"; 
-$resultado = mysqli_query($conn, $query) or die("Consulta fallida: " . mysqli_error()); 
+$query = "SELECT * FROM syrusdb.data_pos WHERE datetime BETWEEN '".$datetime_start."' AND '".$datetime_end."' ORDER BY id"; 
+$resultado = mysqli_query($conn, $query) or die("Consulta fallida: " . mysqli_error());
 
 //$rows = mysqli_fetch_all($resultado)
 
-$rows[] = array(); 
- 
-while ($r = mysqli_fetch_array($resultado)){ 
-    $rows[] = $r; 
+$rows[] = array();
+
+while ($r = mysqli_fetch_array($resultado)){
+    $rows[] = $r;
 }
 
 echo json_encode($rows);
@@ -52,4 +52,3 @@ echo json_encode($rows);
 mysqli_close($conn);
 
 ?>
-
